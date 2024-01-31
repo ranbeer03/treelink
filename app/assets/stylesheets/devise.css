@@ -1,0 +1,75 @@
+/* devise.css */
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+    background: #f7f7f7;
+  }
+  
+  h2 {
+    color: #333;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-container {
+    background: #fff;
+    width: 400px;
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .field {
+    margin-bottom: 20px;
+  }
+  
+  .field label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .field input[type="email"],
+  .field input[type="password"],
+  .field input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .actions {
+    text-align: right;
+  }
+  
+  .actions input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #E74C3C;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .actions input[type="submit"]:hover {
+    background-color: #C0392B;
+  }
+  
+  a {
+    color: #3498DB;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Additional styles for other specific elements as per the image can be added here */
+  

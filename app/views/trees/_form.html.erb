@@ -1,0 +1,171 @@
+<%= form_with(model: tree, html: { id: "tree-form" }) do |form| %>
+  <% if tree.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(tree.errors.count, "error") %> prohibited this tree from being saved:</h2>
+      <ul>
+        <% tree.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- First part -->
+  <div id="first-part">
+    <h1 style="font-size: 50px;">Welcome to Linktree</h1>
+    <div>
+      <%= form.label :name, "What's your name", class: "Input-label", style: "margin-bottom: 25px;" %>
+      <%= form.text_field :name, id: "name", class: "Input-text", placeholder: "linktr.ee/trees/yourname" %>
+      <h5 style="color: red; display:none;" id="name-text">Name must be more than 3 characters long</h5>
+    </div>
+    <%= form.label :user_id, style: "display: none" %>
+    <%= form.number_field :user_id, value: current_user.id, style: "display: none" %>
+    <div style="margin-top: 20px;">
+      <button id="next-btn" type="button" class="button-1">Next</button>
+    </div>
+  </div>
+
+  <!-- Second part -->
+  <div id="second-part" style="display: none;">
+    <h1 style="font-size: 50px">Tell us about yourself</h1>
+    <label>
+      <input type="checkbox" id="showInstagramCheckbox"> Show Instagram Field
+    </label>
+    <label>
+      <input type="checkbox" id="showYoutubeCheckbox"> Show YouTube Field
+    </label>
+    <div id="instagramField" class="input" style="display: none;">
+      <%= form.label :instagram, "Instagram", class: "Input-label", style: "margin-bottom: 25px;" %>
+      <%= form.text_field :instagram, class: "Input-text", placeholder: "https://instagram.com/yourhandle" %>
+    </div>
+    <div id="youtubeField" class="input" style="display: none;">
+      <%= form.label :youtube, "Youtube", class: "Input-label", style: "margin-bottom: 25px;" %>
+      <%= form.text_field :youtube, class: "Input-text" %>
+    </div>
+    <div style="margin-top: 20px;">
+      <button id="next-btn-2" type="button" class="button-1">Next</button>
+    </div>
+  </div>
+
+    <!-- Third part -->
+  <div id="third-part" style="display: none; margin-top: 30px;">
+    <h1 style="font-size: 40px">Select the Style of your Linktree</h1>
+    <div class="card-container">
+      <div class="grid">
+        <div class="card" id="light-card" data-style="light" onclick="handleCardClick('light')">Light mode</div>
+        <div class="card dark-mode" id="dark-card" data-style="dark" onclick="handleCardClick('dark')">Dark Mode</div>
+        <div class="card rainbow-mode" id="rainbow-card"  data-style="rainbow" onclick="handleCardClick('rainbow')">Rainbow Mode</div>
+      </div>
+    </div>
+    <div style="margin-top: 20px;">
+      <%= form.submit "Finish", class: "button-1", id: "submit-btn" %>
+    </div>
+    <div style="margin-top: 20px;">
+      <button id="back-btn" type="button" class="button-1">Back</button>
+    </div>
+  </div>
+
+ <%= form.hidden_field :style, id: "style-input", value: "defaultStyle" %>
+
+
+<% end %>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Handles clicking the "Next" button in the first part
+    document.getElementById("next-btn").addEventListener("click", function() {
+        var nameValue = document.getElementById("name").value;
+        if (nameValue.length > 3) {
+            document.getElementById("name-text").style.display = "none";
+            document.getElementById("first-part").style.display = "none";
+            document.getElementById("second-part").style.display = "block";
+        } else {
+            document.getElementById("name-text").style.display = "block";
+        }
+    });
+
+    // Handles clicking the "Next" button in the second part
+    document.getElementById("next-btn-2").addEventListener("click", function() {
+        document.getElementById("second-part").style.display = "none";
+        document.getElementById("third-part").style.display = "block";
+        document.getElementById("back-btn").style.display = "block"; // Ensure the back button is visible
+    });
+
+    // Handles clicking the "Back" button
+    document.getElementById("back-btn").addEventListener("click", function() {
+        if (document.getElementById("third-part").style.display === "block") {
+            document.getElementById("third-part").style.display = "none";
+            document.getElementById("second-part").style.display = "block";
+        } else if (document.getElementById("second-part").style.display === "block") {
+            document.getElementById("second-part").style.display = "none";
+            document.getElementById("first-part").style.display = "block";
+            this.style.display = "none"; // Hide the back button again
+        }
+    });
+
+    // Fixes the card click issue by ensuring the correct card is identified
+    document.querySelectorAll('.card').forEach(function(card) {
+        card.addEventListener('click', function() {
+            // Extract the style directly from the clicked card's data-style attribute
+            const style = this.getAttribute('data-style');
+            console.log("Card clicked:", style); // This should now correctly reflect the clicked card's style
+
+            // Reset styles for all cards
+            document.querySelectorAll('.card').forEach(function(card) {
+                card.style.boxShadow = "none";
+            });
+             document.getElementById(style + '-card').style.boxShadow = '0 0 10px rgba(0, 255, 0, 0.7)';
+
+    // Update the hidden input's value
+    document.getElementById('style-input').value = style;
+
+            // Apply the selected style to the clicked card
+            this.style.boxShadow = '0 0 10px rgba(0, 255, 0, 0.7)';
+
+            // Ensure the corresponding radio button is checked
+            document.getElementById(style).checked = true;
+        });
+    });
+
+    // Checkbox logic for showing/hiding Instagram and YouTube fields
+    document.getElementById("showInstagramCheckbox").addEventListener("change", function() {
+        document.getElementById("instagramField").style.display = this.checked ? "block" : "none";
+    });
+
+    document.getElementById("showYoutubeCheckbox").addEventListener("change", function() {
+        document.getElementById("youtubeField").style.display = this.checked ? "block" : "none";
+    });
+
+}); 
+</script>
+
+
+
+<style>
+.Input-label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.Input-text {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.card {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+.rainbow-mode {
+  background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+  color: white;
+}
+</style>

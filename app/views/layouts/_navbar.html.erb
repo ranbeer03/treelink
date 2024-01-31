@@ -1,0 +1,15 @@
+<!-- _navbar.html.erb -->
+<div class="navbar">
+  <%= link_to image_tag("tree.png"), root_path %>
+  <div class="navbar-right">
+  <%= link_to "Pricing", home_pricing_path %>
+    <% if !user_signed_in? %>  
+        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to "Log In", new_user_session_path %>
+    <% end %>    
+    <% if user_signed_in? %>
+      <%= link_to "My Account", edit_user_registration_path %>
+      <%= link_to "Log out", destroy_user_session_path %>
+    <% end %>
+  </div>
+</div>

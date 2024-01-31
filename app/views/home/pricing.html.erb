@@ -1,0 +1,61 @@
+<%= stylesheet_link_tag "pricing" %>
+<!-- app/views/home/pricing.html.erb -->
+<section class="pricing-palden">
+  <div class="container">
+    <!-- Pricing Plan 1 -->
+    <div class="pricing-item">
+      <div class="pricing-deco">
+        <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Add SVG or decoration here if needed -->
+        </svg>
+        <div class="pricing-title">Basic Plan</div>
+        <div class="pricing-price"><span class="pricing-currency">$</span>19<span class="pricing-period">/ month</span></div>
+        <div class="pricing__sentence">Ideal for individuals just starting out</div>
+      </div>
+      <ul class="pricing-feature-list">
+        <li class="pricing-feature">1 Project</li>
+        <li class="pricing-feature">Email Support</li>
+        <li class="pricing-feature">24/7 Assistance</li>
+      </ul>
+      <%= link_to "Sign Up", "#", class: "pricing-action" %>
+    </div>
+
+    <!-- Pricing Plan 2 -->
+    <div class="pricing-item pricing__item--featured">
+      <div class="pricing-deco">
+        <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Add SVG or decoration here if needed -->
+        </svg>
+        <div class="pricing-title">Professional Plan</div>
+        <div class="pricing-price"><span class="pricing-currency">$</span>49<span class="pricing-period">/ month</span></div>
+        <div class="pricing__sentence">Perfect for professional users</div>
+      </div>
+      <ul class="pricing-feature-list">
+        <li class="pricing-feature">Up to 5 Projects</li>
+        <li class="pricing-feature">Priority Email Support</li>
+        <li class="pricing-feature">Team Collaboration</li>
+        <li class="pricing-feature">Analytics & Reports</li>
+      </ul>
+      <%= link_to "Sign Up", "#", class: "pricing-action" %>
+    </div>
+
+    <!-- Pricing Plan 3 -->
+    <div class="pricing-item">
+      <div class="pricing-deco">
+        <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Add SVG or decoration here if needed -->
+        </svg>
+        <div class="pricing-title">Enterprise Plan</div>
+        <div class="pricing-price"><span class="pricing-currency">$</span>99<span class="pricing-period">/ month</span></div>
+        <div class="pricing__sentence">Best for large organizations</div>
+      </div>
+      <ul class="pricing-feature-list">
+        <li class="pricing-feature">Unlimited Projects</li>
+        <li class="pricing-feature">Dedicated Support</li>
+        <li class="pricing-feature">Personal Account Manager</li>
+        <li class="pricing-feature">Custom Integrations</li>
+      </ul>
+      <%= link_to "Sign Up", "#", class: "pricing-action" %>
+    </div>
+  </div>
+</section>
