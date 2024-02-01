@@ -2,7 +2,7 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.0.0
-FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
+FROM registry.docker.com/library/ruby:$RUBY_VERSION-buster as base
 
 # Rails app lives here
 WORKDIR /rails
@@ -19,9 +19,11 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install -y build-essential libvips bash bash-completion libffi-dev tzdata postgresql nodejs pm yarn && \
-    apt-get clean && \ 
-    rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man
+    apt-get install -y build-essential libvips bash bash-completion libffi-dev tzdata postgresql nodejs npm yarn && \
+
+# Force Bundler to use Ruby platform for gems, helping with Nokogiri
+RUN bundle config set force_ruby_platform true
+
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle install && \

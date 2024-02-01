@@ -23,6 +23,8 @@ gem 'devise'
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 gem 'friendly_id', '~> 5.4.0' 
 
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
