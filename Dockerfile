@@ -19,8 +19,9 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libpq-dev libvips pkg-config
-
+    apt-get install -y build-essential libvips bash bash-completion libffi-dev tzdata postgresql nodejs pm yarn && \
+    apt-get clean && \ 
+    rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle install && \
