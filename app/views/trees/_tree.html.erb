@@ -1,32 +1,41 @@
-<div id="<%= dom_id tree %>">
-  <p>
-    <strong>Name:</strong>
-    <%= tree.name %>
-  </p>
+<%= stylesheet_link_tag "trees" %>
+<div id="<%= dom_id(tree) %>" class="linktree <%= tree.style %>">
+  <div class="user-name">
+    <strong><%= tree.name %></strong>
+  </div>
 
-  <p>
-    <strong>X:</strong>
-    <%= tree.x %>
-  </p>
+  <% if tree.x.present? %>
+    <div class="link-item">
+      <%= image_tag('xlogo.png', alt: 'X') %> <!-- Adjust the file name as necessary -->
+      <a href="<%= tree.x %>" target="_blank"><%= tree.x %></a>
+      <%= tree.x %>
+    </div>
+  <% end %>
 
-  <p>
-    <strong>Instagram:</strong>
-    <%= tree.instagram %>
-  </p>
+  <% if tree.instagram.present? %>
+    <div class="link-item">
+      <%= image_tag('instagramlogo.png', alt: 'Instagram') %> <!-- Adjust the file name as necessary -->
+      <a href="<%= tree.instagram %>" target="_blank"><%= tree.instagram %></a>
+    </div>
+  <% end %>
 
-  <p>
-    <strong>Youtube:</strong>
-    <%= tree.youtube %>
-  </p>
+  <% if tree.youtube.present? %>
+    <div class="link-item">
+       <%= image_tag('youtubelogo.png', alt: 'Youtube') %> <!-- Adjust the file name as necessary -->
+      <a href="<%= tree.youtube %>" target="_blank"><%= tree.youtube %></a>
+    </div>
+  <% end %>
 
-  <p>
-    <strong>User:</strong>
-    <%= tree.user_id %>
-  </p>
-
-  <p>
-    <strong>Style:</strong>
-    <%= tree.style %>
-  </p>
-
+  <div class="user-info">
+  <% if tree.category_id.present? %>
+    <p>
+      <strong>Category:</strong>
+      <%= tree.category_id%>
+    </p>
+    <% end %>
+    <p>
+      <strong>Style:</strong>
+      <%= tree.style %>
+    </p>
+  </div>
 </div>

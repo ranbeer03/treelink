@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag 'categories' %>
+<div class="container">
+<h1 class = "heading"><%= @category.name %></h1>
+
+
+<!-- Render trees in this category here -->
+  <ul class="tree-list">
+    <% @category.trees.each do |tree| %>
+      <li>
+        <%= link_to tree.name, tree, class: 'tree-link' %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Edit', edit_category_path(@category), class: 'button-1' %> 
+    <%= link_to 'Back', categories_path, class: 'button-1' %>
+
+<% if @category.trees.empty? %>
+  <p>No trees in this category.</p>
+<% else %>
+  
+
+<% end %>
+</div>

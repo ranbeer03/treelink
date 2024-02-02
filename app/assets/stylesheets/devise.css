@@ -1,26 +1,25 @@
 /* devise.css */
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #333;
-    background: #f7f7f7;
+    min-height: 100vh;
+    height: auto;
+    color: #fff;
   }
   
   h2 {
-    color: #333;
-    font-size: 24px;
+    font-size: 2em;
     font-weight: 300;
     text-align: center;
     margin-bottom: 20px;
   }
   
   .form-container {
-    background: #fff;
     width: 400px;
     margin: 30px auto;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px var(--color-tertiary);
+    border: 1px solid var(--color-primary)
   }
   
   .field {
@@ -30,7 +29,6 @@ body {
   .field label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
   }
   
   .field input[type="email"],
@@ -44,7 +42,7 @@ body {
   }
   
   .actions {
-    text-align: right;
+    text-align: left;
   }
   
   .actions input[type="submit"] {
@@ -56,6 +54,8 @@ body {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    margin-bottom: 10px;
+    
   }
   
   .actions input[type="submit"]:hover {

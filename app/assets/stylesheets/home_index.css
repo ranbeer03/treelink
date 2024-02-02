@@ -1,0 +1,27 @@
+/* General layout settings */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    height: 85vh;
+}
+
+.column-60 {
+    max-width: 60%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.content-container {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+.text-content p {
+    color: #bbbbbb;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}

@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "form" %>
+
 <%= form_with(model: tree, html: { id: "tree-form" }) do |form| %>
   <% if tree.errors.any? %>
     <div style="color: red">
@@ -34,13 +36,20 @@
     <label>
       <input type="checkbox" id="showYoutubeCheckbox"> Show YouTube Field
     </label>
+    <label>
+      <input type="checkbox" id="showXCheckbox"> Show X Field
+    </label>
     <div id="instagramField" class="input" style="display: none;">
       <%= form.label :instagram, "Instagram", class: "Input-label", style: "margin-bottom: 25px;" %>
       <%= form.text_field :instagram, class: "Input-text", placeholder: "https://instagram.com/yourhandle" %>
     </div>
     <div id="youtubeField" class="input" style="display: none;">
       <%= form.label :youtube, "Youtube", class: "Input-label", style: "margin-bottom: 25px;" %>
-      <%= form.text_field :youtube, class: "Input-text" %>
+      <%= form.text_field :youtube, class: "Input-text", placeholder: "https://x.com/yourhandle" %>
+    </div>
+    <div id="xField" class="input" style="display: none;">
+      <%= form.label :x, "x", class: "Input-label", style: "margin-bottom: 25px;" %>
+      <%= form.text_field :x, class: "Input-text", placeholder: "https://instagram.com/yourhandle" %>
     </div>
     <div style="margin-top: 20px;">
       <button id="next-btn-2" type="button" class="button-1">Next</button>
@@ -52,9 +61,18 @@
     <h1 style="font-size: 40px">Select the Style of your Linktree</h1>
     <div class="card-container">
       <div class="grid">
-        <div class="card" id="light-card" data-style="light" onclick="handleCardClick('light')">Light mode</div>
+        <div class="card" id="light-card" data-style="light" onclick="handleCardClick('light')">Light Mode</div>
         <div class="card dark-mode" id="dark-card" data-style="dark" onclick="handleCardClick('dark')">Dark Mode</div>
         <div class="card rainbow-mode" id="rainbow-card"  data-style="rainbow" onclick="handleCardClick('rainbow')">Rainbow Mode</div>
+      </div>
+      <!-- Add this select input for choosing or creating a category -->
+      <div class="field">
+        <%= form.label :category_id, "Select or Create a Category", class: "Input-label", style: "margin-bottom: 25px;" %>
+        <%= form.collection_select(:category_id, Category.all, :id, :name, { include_blank: "Select or Create a Category" }) %>
+      </div>
+      <div class="field">
+        <%= form.label :category_name, "New Category Name", class: "Input-label", style: "margin-bottom: 25px;" %>
+        <%= form.text_field :category_name, class: "Input-text", placeholder: "Enter a New Category Name" %>
       </div>
     </div>
     <div style="margin-top: 20px;">
@@ -134,6 +152,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("showYoutubeCheckbox").addEventListener("change", function() {
         document.getElementById("youtubeField").style.display = this.checked ? "block" : "none";
+    });
+
+    document.getElementById("showXCheckbox").addEventListener("change", function() {
+        document.getElementById("xField").style.display = this.checked ? "block" : "none";
     });
 
 }); 

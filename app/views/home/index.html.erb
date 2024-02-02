@@ -1,12 +1,11 @@
-<%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
-<!-- Your existing HTML structure -->
-<div class="row">
-  <p class="notice"><%= notice %></p>
+<%= stylesheet_link_tag 'home_index' %>
+<div class="home">
   <div class="column column-60">
     <div class="content-container">
       <div class="text-content">
-        <h1>Everything you are. In one, simple link in bio.</h1>
-        <p>Join 40M+ people using Linktree for their link in bio. One link to help you share everything you create, curate and sell from your Instagram, TikTok, Twitter, YouTube, and other social media profiles.</p>
+        <h1 class="heading">Everything you are. In one, simple link in bio.</h1>
+        <p>Join 40M+ people using TreeLink for their link in bio. One link to help you share everything you create, curate and sell from your Instagram, TikTok, Twitter, YouTube, and other social media profiles.</p>
+        <%= link_to "Explore Trees", trees_path, class: "button-1" %>
         <% if user_signed_in? %>
           <% if current_user.tree.present? %>
             <%= link_to "View my tree", current_user.tree, class: "button-1", target: "_blank" %>

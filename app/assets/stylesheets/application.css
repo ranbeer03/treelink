@@ -1,15 +1,90 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+:root {
+    --color-primary: #02a134; /* Primary color: a shade of blue */
+    --color-secondary: #006010; /* Secondary color: a shade of gray */
+    --color-tertiary: #002f06	; /* Tertiary color: a shade of green */
+
+
+    --background-color: #000000; /* Light background color */
+    --text-color: #f6f6f6; /* Primary text color */
+}
+
+body, html {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(45deg, #000000, #252525, #303030);
+    height: auto;
+    margin: 0px;
+  }
+
+  .heading {
+    font-size:3.5em;
+    color: var(--text-color);
+  }
+  
+  .delete-button {
+    margin: 10px;
+    padding: 10px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 500;
+    background-image: linear-gradient(45deg, #7c0505 0%, #f11414  51%, #7c0505  100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    text-decoration: none;
+    width: fit-content;
+    margin-left: 0px;
+  }
+
+  .button-1 {
+    margin: 10px;
+    padding: 10px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 400;
+    background-image: linear-gradient(45deg, var(--color-secondary) 0%, var(--color-primary)  51%, var(--color-secondary)  100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    text-decoration: none;
+    width: fit-content;
+    margin-left: 0px;
+  }
+  
+  
+  .button-1:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .button-1:active {
+    transform: scale(0.95);
+  }
+
+@media (min-width: 768px) {
+  .button-40 {
+    padding: .75rem 1.5rem;
+  }
+}
+  
+  @media (min-width: 768px) {
+    .button-1 {
+      font-size: 1.125rem;
+      padding: 1rem 2rem;
+    }
+  }

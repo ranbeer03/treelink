@@ -1,6 +1,10 @@
-<!-- _navbar.html.erb -->
+    <%= stylesheet_link_tag "navbar", "data-turbo-track": "reload" %>
+
 <div class="navbar">
+  <div class="logo-container">
   <%= link_to image_tag("tree.png"), root_path %>
+  <span class="logo-text">TreeLink</span>
+</div>
   <div class="navbar-right">
   <%= link_to "Pricing", home_pricing_path %>
     <% if !user_signed_in? %>  
@@ -8,8 +12,9 @@
         <%= link_to "Log In", new_user_session_path %>
     <% end %>    
     <% if user_signed_in? %>
+      <%= link_to 'Categories', categories_path %>
       <%= link_to "My Account", edit_user_registration_path %>
-      <%= link_to "Log out", destroy_user_session_path %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag 'comments' %>
+<h1>Comments</h1>
+
+<%= link_to 'New Comment', new_comment_path, class: 'button-1' %>
+
+<ul class="comment-list">
+  <% @comments.each do |comment| %>
+    <li class="comment-item">
+      <%= comment.content %> |
+      <%= link_to 'Edit', edit_comment_path(comment), class: 'button-2' %>
+    </li>
+  <% end %>
+</ul>

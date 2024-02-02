@@ -1,14 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<h1>Trees</h1>
+<div class="main">
+  <p class="notice" style="color: green"><%= notice %></p>
+  <h1 class="heading">Explore Trees</h1>
+  <div id="trees" class="container">
+    <% @trees.each do |tree| %>
+      <div class="linktrees">
+        <%= render tree %>
+          <%= link_to tree, class: "button-64", role: "button" do %>
+            <%= content_tag :span, "Show this tree", class: "text" %>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
 
-<div id="trees">
-  <% @trees.each do |tree| %>
-    <%= render tree %>
-    <p>
-      <%= link_to "Show this tree", tree %>
-    </p>
-  <% end %>
+
 </div>
-
-<%= link_to "New tree", new_tree_path %>

@@ -4,11 +4,48 @@
   <%= render @tree %>
   <% if user_signed_in? %>
   <% if current_user.id == @tree.user_id %>
-    <div style="margin-top: 20px;">
       <%= link_to "Edit this tree", edit_tree_path(@tree), class: "button-1" %>
-      <%# <%= link_to "Back to trees", trees_path, class: "button-1" %> %>
-      <%= button_to "Delete my tree", @tree, method: :delete, data: { confirm: "Are you sure?" }, class: "button-1", style: "margin-top: 20px;" %>
+      <%= link_to "Back to trees", trees_path, class: "button-1" %>
+      <%= button_to "Delete my tree", @tree, method: :delete, data: { confirm: "Are you sure?" }, class: "delete-button", style: "margin-top: 20px;" %>
+
     </div>
   <% end %>
   <% end %>
 </div>
+
+
+<!-- other tree details -->
+
+<!-- Comment form -->
+<%= form_for([@tree, @tree.comments.build]) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit "Add Comment" %>
+  </p>
+<% end %>
+
+<!-- List existing comments -->
+<% @tree.comments.each do |comment| %>
+<% Rails.logger.debug "Comment ID: #{comment.id}, Content: #{comment.content}" %>
+  <% if comment.present? %>
+    <p><%= comment.content %></p>
+<%= button_to "Delete Comment", [comment.tree, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+  <% else %>
+    <p>Comment not found</p>
+  <% end %>
+<% end %>
+
+

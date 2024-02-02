@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Profile</title>
+  <%= stylesheet_link_tag 'edit_profile' %>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">Edit Profile</h1>
+
+    <%= form_for(@user, html: { class: 'user-form' }) do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error-explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: 'input-field' %>
+      </div>
+
+      <% if @user.encrypted_password.present? %>
+        <div class="form-field">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "new-password", class: 'input-field' %>
+          <em class="password-hint">(leave blank if you don't want to change it)</em>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input-field' %>
+        </div>
+      <% end %>
+
+      <div class="form-actions">
+        <%= f.submit "Update", class: 'button-1' %>
+      </div>
+    <% end %>
+
+    <%= link_to 'Back', user_path(@user), class: 'back-link' %>
+  </div>
+</body>
+</html>

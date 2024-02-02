@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Categories</title>
+  <%= stylesheet_link_tag 'categories' %>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">Categories</h1>
+
+    <%= link_to 'New Category', new_category_path, class: 'button-1' %>
+
+    <ul class="category-list">
+      <% @categories.each do |category| %>
+        <li>
+          <%= link_to category.name, category, class: 'category-link' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,53 +1,44 @@
 <%= stylesheet_link_tag "pricing" %>
-<!-- app/views/home/pricing.html.erb -->
-<section class="pricing-palden">
-  <div class="container">
-    <!-- Pricing Plan 1 (Freelance) -->
-    <div class="pricing-item">
-      <div class="pricing-deco">
-        <!-- SVG Decoration for Freelance Plan -->
-        <!-- Add SVG paths here as in the target HTML -->
-        <div class="pricing-title">Freelance</div>
-        <div class="pricing-price"><span class="pricing-currency">$</span>29<span class="pricing-period">/ mo</span></div>
+<main class="main flow">
+  <div class="main-cards">
+  <h1 class="heading">Pricing</h1>
+    <div class="cards-inner">
+      <!-- Pricing Plan 1 (Freelance) -->
+      <div class="card">
+        <h2 class="card-heading">Freelance</h2>
+        <p class="card-price">$29/mo</p>
+        <ul role="list" class="card-bullets flow">
+          <li>1 GB of space</li>
+          <li>Support at $25/hour</li>
+          <li>Limited cloud access</li>
+        </ul>
+        <%= link_to "Choose plan", "#", class: "button-1" %>
       </div>
-      <ul class="pricing-feature-list">
-        <li class="pricing-feature">1 GB of space</li>
-        <li class="pricing-feature">Support at $25/hour</li>
-        <li class="pricing-feature">Limited cloud access</li>
-      </ul>
-      <%= link_to "Choose plan", "#", class: "pricing-action" %>
-    </div>
 
-    <!-- Pricing Plan 2 (Business) -->
-    <div class="pricing-item pricing__item--featured">
-      <div class="pricing-deco">
-        <!-- SVG Decoration for Business Plan -->
-        <!-- Add SVG paths here as in the target HTML -->
-        <div class="pricing-title">Business</div>
-        <div class="pricing-price"><span class="pricing-currency">$</span>59<span class="pricing-period">/ mo</span></div>
+      <!-- Pricing Plan 2 (Business) -->
+      <div class="card card-featured2">
+        <h2 class="card-heading">Business</h2>
+        <p class="card-price">$59/mo</p>
+        <ul role="list" class="card-bullets flow">
+          <li>5 GB of space</li>
+          <li>Support at $5/hour</li>
+          <li>Full cloud access</li>
+        </ul>
+        <%= link_to "Choose plan", "#", class: "button-1" %>
       </div>
-      <ul class="pricing-feature-list">
-        <li class="pricing-feature">5 GB of space</li>
-        <li class="pricing-feature">Support at $5/hour</li>
-        <li class="pricing-feature">Full cloud access</li>
-      </ul>
-      <%= link_to "Choose plan", "#", class: "pricing-action" %>
-    </div>
 
-    <!-- Pricing Plan 3 (Enterprise) -->
-    <div class="pricing-item">
-      <div class="pricing-deco">
-        <!-- SVG Decoration for Enterprise Plan -->
-        <!-- Add SVG paths here as in the target HTML -->
-        <div class="pricing-title">Enterprise</div>
-        <div class="pricing-price"><span class="pricing-currency">$</span>99<span class="pricing-period">/ mo</span></div>
+      <!-- Pricing Plan 3 (Enterprise) -->
+      <div class="card card-featured">
+        <h2 class="card-heading">Enterprise</h2>
+        <p class="card-price">$99/mo</p>
+        <ul role="list" class="card-bullets flow">
+          <li>10 GB of space</li>
+          <li>Support at $5/hour</li>
+          <li>Full cloud access</li>
+        </ul>
+        <%= link_to "Choose plan", "#", class: "button-1" %>
       </div>
-      <ul class="pricing-feature-list">
-        <li class="pricing-feature">10 GB of space</li>
-        <li class="pricing-feature">Support at $5/hour</li>
-        <li class="pricing-feature">Full cloud access</li>
-      </ul>
-      <%= link_to "Choose plan", "#", class: "pricing-action" %>
     </div>
   </div>
-</section>
+</main>
+

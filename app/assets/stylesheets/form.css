@@ -1,0 +1,120 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  
+  #tree-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h1 {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .Input-label {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .Input-text {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  button.button-1, input[type="submit"].button-1 {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button.button-1:hover, input[type="submit"].button-1:hover {
+    background-color: #0056b3;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .dark-mode {
+    background-color: #333;
+    color: #ffffff;
+  }
+  
+  .rainbow-mode {
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+    color: #ffffff;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  
+  /* Error messages styling */
+  div[style="color: red"] {
+    background-color: #ffdede;
+    padding: 10px;
+    border-left: 5px solid red;
+    margin-bottom: 20px;
+  }
+  
+  div[style="color: red"] h2 {
+    margin-top: 0;
+  }
+  
+  div[style="color: red"] ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Adjust label and input field margins */
+  .Input-label, .Input-text {
+    margin-bottom: 15px;
+  }
+  
+  /* Enhance visibility of instructional text */
+  h5[style*="color: red"] {
+    font-size: 14px;
+  }
+  
+  /* Improve layout for checkbox options */
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  

@@ -5,25 +5,25 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: treelink_postgresql
+  username: ranbeerchaudhary
   password: 123456789
   # host: localhost
-  host: <%= ENV[ 'POSTGRES HOST' | %>
+  host: <%= ENV[ 'POSTGRES HOST' ] %>
 
 development:
   <<: *default
   database: treelink_development
-  username: treelink_postgresql
+  username: ranbeerchaudhary
   password: 123456789
 
 test:
   <<: *default
   database: treelink_test
-  username: treelink_postgresql
+  username: ranbeerchaudhary
   password: 123456789
 #
 production:
   <<: *default
   database: treelink_production
-  username: treelink
+  username: ranbeerchaudhary
   password: <%= ENV["TREELINK_DATABASE_PASSWORD"] %>

@@ -8,7 +8,11 @@ class TreesController < ApplicationController
 
   # GET /trees/1 or /trees/1.json
   def show
+    @tree = Tree.friendly.find(params[:id])
+    @comment = Comment.new
   end
+  
+  
 
   # GET /trees/new
   def new
@@ -25,20 +29,27 @@ class TreesController < ApplicationController
   end
 
   # POST /trees or /trees.json
-  def create
-    puts params.inspect # Temporarily add to debug
-    @tree = Tree.new(tree_params)
+  # POST /trees or /trees.json
+def create
+  @tree = Tree.new(tree_params)  # Initialize a new Tree object
 
-    respond_to do |format|
-      if @tree.save
-        format.html { redirect_to tree_url(@tree), notice: "Tree was successfully created." }
-        format.json { render :show, status: :created, location: @tree }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @tree.errors, status: :unprocessable_entity }
-      end
+  if params[:tree][:category_id].blank?
+    # Create a new category if category_id is blank
+    new_category = Category.create(name: params[:tree][:category_name])
+    @tree.category = new_category
+  end
+
+  respond_to do |format|
+    if @tree.save
+      format.html { redirect_to tree_url(@tree), notice: "Tree was successfully created." }
+      format.json { render :show, status: :created, location: @tree }
+    else
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @tree.errors, status: :unprocessable_entity }
     end
   end
+end
+
 
   # PATCH/PUT /trees/1 or /trees/1.json
   def update
@@ -70,7 +81,11 @@ class TreesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def tree_params
-      params.require(:tree).permit(:name, :x, :instagram, :youtube, :user_id, :style)
-    end
+    # app/controllers/trees_controller.rb
+    # app/controllers/trees_controller.rb
+def tree_params
+  params.require(:tree).permit(:name, :x, :instagram, :youtube, :user_id, :style, :category_id)
+end
+
+
 end

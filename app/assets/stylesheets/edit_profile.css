@@ -1,0 +1,82 @@
+/* edit_profile.css */
+
+/* Global styles */
+body {
+    margin: 0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eceff133;
+  }
+
+  .container:hover{
+    box-shadow: 0 10px 20px var(--color-primary);
+    border: 2px solid var(--color-primary);
+  }
+  
+  .user-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+  }
+  
+  .input-field {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .password-hint {
+    font-style: italic;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .form-actions {
+    margin-top: 20px;
+  }
+  
+  .button-1 {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Error message styles */
+  #error-explanation {
+    background-color: #ff6b6b;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  /* Back link style */
+  .back-link {
+    display: block;
+    text-align: left;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  
